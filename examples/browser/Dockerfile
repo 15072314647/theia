@@ -32,11 +32,11 @@
 # Note: If you want Java language support you will need to extend this image yourself
 # by adding a JDK to the image and making sure it is accessible via the system PATH.
 
-FROM node:8
+FROM node:10.2.0
 RUN useradd --create-home theia
 WORKDIR /home/theia
 RUN rm -rf /opt/yarn && rm -f /usr/local/bin/yarn && rm -f /usr/local/bin/yarnpkg
-RUN apt-get update && apt-get install -y npm && npm install -g yarn@1.3.2
+RUN apt-get update && apt-get install -y npm && npm install -g yarn
 USER theia
 RUN git clone --depth 1 https://github.com/theia-ide/theia && \
     cd theia && \
