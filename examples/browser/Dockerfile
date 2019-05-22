@@ -37,7 +37,7 @@ RUN useradd --create-home theia
 WORKDIR /home/theia
 RUN rm -rf /opt/yarn && rm -f /usr/local/bin/yarn && rm -f /usr/local/bin/yarnpkg
 RUN apt-get update && npm install -g yarn 
-RUN apt-get install libx11-dev && apt-get install libxkbfile-dev && npm install -g native-keymap
+RUN apt-get install -y libx11-dev libxkbfile-dev && npm install -g native-keymap
 USER theia
 RUN git clone --depth 1 https://github.com/theia-ide/theia && \
     cd theia && \
